@@ -38,6 +38,8 @@
 | Tilt your head right  | Face tracking   |
 | Open your mouth       | Face tracking   |
 
+**ВО ВРЕМЯ ПОВОРОТА ГОЛОВЫ НАДО ПОДНЯТЬ РУКУ, ДЕРЖАТЬ ЕЕ И ПОВЕРНУТЬ ГОЛОВУ ТОГДА ЗАРАБОТАЕТ**
+
 ---
 
 ## Error Mode
