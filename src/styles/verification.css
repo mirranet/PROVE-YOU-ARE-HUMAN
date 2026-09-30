@@ -1,0 +1,408 @@
+.verification-layout {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+
+    gap: 24px;
+    align-items: start;
+}
+
+/* =========================
+   CAMERA
+========================= */
+
+.camera-container {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 650px;
+
+    overflow: hidden;
+
+    background: #020407;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+#camera-video,
+#tracking-canvas {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+#tracking-canvas {
+    z-index: 2;
+}
+
+.camera-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.tracking-label {
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 12px;
+
+    background: rgba(5, 7, 10, 0.75);
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    backdrop-filter: blur(10px);
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.camera-info {
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+}
+
+.camera-error {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: rgba(5, 7, 10, 0.96);
+
+    text-align: center;
+}
+
+.camera-error strong {
+    color: var(--error);
+
+    font-size: 12px;
+
+    letter-spacing: 0.12em;
+}
+
+.camera-error span {
+    max-width: 300px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   CHALLENGE PANEL
+========================= */
+
+.challenge-panel {
+    width: 100%;
+    min-width: 0;
+
+    position: sticky;
+    top: 24px;
+
+    align-self: start;
+
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+
+/* =========================
+   CHALLENGE HEADER
+========================= */
+
+.challenge-top {
+    padding: 22px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.challenge-label {
+    color: var(--blue-bright);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+.challenge-number {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* =========================
+   CHALLENGE CONTENT
+========================= */
+
+.challenge-content {
+    padding: 40px 30px;
+}
+
+.challenge-status {
+    margin-bottom: 20px;
+
+    color: var(--blue-bright);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+.challenge-content h2 {
+    margin-bottom: 15px;
+
+    font-size: 28px;
+    line-height: 1.1;
+
+    letter-spacing: -0.04em;
+}
+
+.challenge-content p {
+    max-width: 350px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container {
+    padding: 0 30px 25px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: var(--text-dim);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+
+    background: var(--surface-light);
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: var(--blue);
+
+    box-shadow:
+        0 0 10px rgba(22, 119, 255, 0.5);
+
+    transition: width 0.3s ease;
+}
+
+
+/* =========================
+   RECOGNITION STATUS
+========================= */
+
+.recognition-status {
+    padding: 20px 30px;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.recognition-item {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 7px 0;
+}
+
+.recognition-name {
+    color: var(--text-dim);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.recognition-value {
+    color: var(--text-secondary);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.feedback-box {
+    margin: 20px 30px;
+
+    min-height: 80px;
+
+    padding: 16px 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface-light);
+
+    border-radius: var(--radius);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.feedback-icon {
+    color: var(--blue-bright);
+
+    font-size: 9px;
+}
+
+.feedback-box strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
+}
+
+.feedback-box p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.feedback-waiting {
+    border-color: var(--border);
+}
+
+.feedback-error {
+    border-color: var(--error);
+
+    background: rgba(255, 77, 103, 0.06);
+}
+
+.feedback-error p {
+    color: var(--error);
+}
+
+.feedback-success {
+    border-color: var(--success);
+
+    background: rgba(53, 212, 154, 0.06);
+}
+
+.feedback-success p {
+    color: var(--success);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .verification-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .challenge-panel {
+        position: static;
+    }
+
+    .camera-container {
+        min-height: 500px;
+    }
+}

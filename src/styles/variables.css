@@ -1,0 +1,29 @@
+:root {
+    --bg: #05070a;
+    --surface: #090d13;
+    --surface-light: #0d141d;
+
+    --border: #182533;
+    --border-light: #213548;
+
+    --blue-dark: #07346b;
+    --blue: #1677ff;
+    --blue-bright: #3d9bff;
+
+    --text: #f2f6fb;
+    --text-secondary: #8491a1;
+    --text-dim: #4e5b69;
+
+    --success: #35d49a;
+    --error: #ff4d67;
+
+    --radius: 12px;
+
+    --font:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+}

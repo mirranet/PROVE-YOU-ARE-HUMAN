@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PROVE YOU ARE HUMAN</title>
+
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/variables.css">
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/landing.css">
+    <link rel="stylesheet" href="/src/styles/verification.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ==================== LANDING ==================== -->
+
+    <main id="landing-screen" class="screen active">
+
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>PROVE YOU ARE HUMAN</span>
+            </div>
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+        </header>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    CAMERA-BASED VERIFICATION SYSTEM
+                </div>
+
+                <h1>
+                    PROVE
+                    <span>YOU ARE</span>
+                    HUMAN
+                </h1>
+
+                <p class="hero-description">
+                    Complete a sequence of physical challenges
+                    using your camera. No keyboard. No mouse.
+                    Just you.
+                </p>
+
+                <button id="start-button" class="primary-button">
+                    <span>START VERIFICATION</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+                <div class="hero-meta">
+                    <span>REAL-TIME TRACKING</span>
+                    <span class="meta-separator"></span>
+                    <span>NO INSTALLATION</span>
+                    <span class="meta-separator"></span>
+                    <span>5 CHALLENGES</span>
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="scanner-card">
+
+                    <div class="scanner-header">
+                        <span>LIVE ANALYSIS</span>
+                        <span>01</span>
+                    </div>
+
+                    <div class="scanner-area">
+
+                        <div class="scanner-grid"></div>
+
+                        <div class="scanner-corner corner-tl"></div>
+                        <div class="scanner-corner corner-tr"></div>
+                        <div class="scanner-corner corner-bl"></div>
+                        <div class="scanner-corner corner-br"></div>
+
+                        <div class="scanner-crosshair">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="scanner-line"></div>
+
+                        <div class="scanner-message">
+                            <span class="status-dot"></span>
+                            AWAITING USER
+                        </div>
+
+                    </div>
+
+                    <div class="scanner-footer">
+                        <span>CAM_01</span>
+                        <span>READY</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="landing-footer">
+            <span>PROVE YOU ARE HUMAN © 2026</span>
+            <span>VERIFICATION PROTOCOL v1.0</span>
+        </footer>
+
+    </main>
+
+
+    <!-- ==================== VERIFICATION ==================== -->
+
+    <!-- ==================== VERIFICATION ==================== -->
+
+<main id="verification-screen" class="screen">
+
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="brand-mark"></span>
+            <span>PROVE YOU ARE HUMAN</span>
+        </div>
+
+        <div class="camera-status">
+            <span class="status-dot"></span>
+            CAMERA LIVE
+        </div>
+
+    </header>
+
+
+    <section class="verification-layout">
+
+        <!-- ==================== CAMERA ==================== -->
+
+        <div class="camera-container">
+
+            <video
+                id="camera-video"
+                autoplay
+                playsinline
+                muted
+            ></video>
+
+            <canvas id="tracking-canvas"></canvas>
+
+
+            <div class="camera-overlay">
+
+                <div class="camera-corner corner-tl"></div>
+                <div class="camera-corner corner-tr"></div>
+                <div class="camera-corner corner-bl"></div>
+                <div class="camera-corner corner-br"></div>
+
+                <div class="tracking-label">
+                    <span class="status-dot"></span>
+                    TRACKING ACTIVE
+                </div>
+
+                <div class="camera-info">
+                    <span>CAM_01</span>
+                    <span id="fps-counter">-- FPS</span>
+                </div>
+
+            </div>
+
+
+            <!-- CAMERA ERROR -->
+
+            <div
+                id="camera-error"
+                class="camera-error hidden"
+            >
+
+                <strong>
+                    CAMERA ACCESS REQUIRED
+                </strong>
+
+                <span>
+                    Allow camera access to continue verification.
+                </span>
+
+                <button
+                    id="retry-camera"
+                    class="secondary-button"
+                >
+                    RETRY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== CHALLENGE PANEL ==================== -->
+
+        <aside class="challenge-panel">
+
+            <div class="challenge-top">
+
+                <div class="challenge-label">
+                    VERIFICATION
+                </div>
+
+                <div class="challenge-number">
+
+                    <span id="current-challenge">
+                        01
+                    </span>
+
+                    <span class="slash">
+                        /
+                    </span>
+
+                    <span id="total-challenges">
+                        05
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="challenge-content">
+
+                <div class="challenge-status">
+                    WAITING FOR MOVEMENT
+                </div>
+
+                <h2 id="challenge-title">
+                    GET READY
+                </h2>
+
+                <p id="challenge-description">
+                    Prepare for your first verification challenge.
+                </p>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-container">
+
+                <div class="progress-header">
+
+                    <span>
+                        SESSION PROGRESS
+                    </span>
+
+                    <span id="progress-percent">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progress-fill"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOGNITION -->
+
+            <div class="recognition-status">
+
+                <div class="recognition-item">
+
+                    <span class="recognition-name">
+                        HAND TRACKING
+                    </span>
+
+                    <span
+                        id="hand-status"
+                        class="recognition-value"
+                    >
+                        WAITING
+                    </span>
+
+                </div>
+
+
+                <div class="recognition-item">
+
+                    <span class="recognition-name">
+                        FACE TRACKING
+                    </span>
+
+                    <span
+                        id="face-status"
+                        class="recognition-value"
+                    >
+                        WAITING
+                    </span>
+
+                </div>
+
+
+                <div class="recognition-item">
+
+                    <span class="recognition-name">
+                        MOVEMENT
+                    </span>
+
+                    <span
+                        id="movement-status"
+                        class="recognition-value"
+                    >
+                        WAITING
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback-box"
+                class="feedback-box feedback-waiting"
+            >
+
+                <span class="feedback-icon">
+                    ●
+                </span>
+
+                <div>
+
+                    <strong id="feedback-title">
+                        SYSTEM READY
+                    </strong>
+
+                    <p id="feedback-message">
+                        Complete the challenge shown above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+    <footer class="verification-footer">
+
+        <span>
+            REAL-TIME HUMAN VERIFICATION
+        </span>
+
+        <span id="response-time">
+            RESPONSE --.-- SEC
+        </span>
+
+    </footer>
+
+</main>
+
+</div>
+
+<script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

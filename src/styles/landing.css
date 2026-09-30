@@ -1,0 +1,278 @@
+.hero {
+    min-height: calc(100vh - 140px);
+
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.eyebrow {
+    margin-bottom: 25px;
+
+    color: var(--blue-bright);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+.hero h1 {
+    margin-bottom: 28px;
+
+    font-size: clamp(60px, 7vw, 110px);
+    line-height: 0.86;
+
+    font-weight: 800;
+    letter-spacing: -0.07em;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px #40566d;
+}
+
+.hero-description {
+    max-width: 470px;
+
+    margin-bottom: 35px;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.hero-meta {
+    margin-top: 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+}
+
+.meta-separator {
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: var(--text-dim);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.scanner-card {
+    width: min(100%, 500px);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.4);
+}
+
+.scanner-header,
+.scanner-footer {
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.scanner-footer {
+    border-top: 1px solid var(--border);
+    border-bottom: none;
+}
+
+.scanner-area {
+    position: relative;
+
+    height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.scanner-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(22, 119, 255, 0.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(22, 119, 255, 0.06) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+}
+
+.scanner-crosshair {
+    position: relative;
+
+    width: 120px;
+    height: 120px;
+
+    border: 1px solid rgba(61, 155, 255, 0.3);
+
+    border-radius: 50%;
+}
+
+.scanner-crosshair::before,
+.scanner-crosshair::after {
+    content: "";
+
+    position: absolute;
+
+    background: rgba(61, 155, 255, 0.4);
+}
+
+.scanner-crosshair::before {
+    top: 50%;
+    left: -25px;
+    right: -25px;
+    height: 1px;
+}
+
+.scanner-crosshair::after {
+    left: 50%;
+    top: -25px;
+    bottom: -25px;
+    width: 1px;
+}
+
+.scanner-crosshair span {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--blue-bright);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 15px var(--blue);
+}
+
+.scanner-crosshair span:first-child {
+    top: 20px;
+    left: 20px;
+}
+
+.scanner-crosshair span:last-child {
+    right: 20px;
+    bottom: 20px;
+}
+
+.scanner-line {
+    position: absolute;
+
+    left: 15%;
+    right: 15%;
+
+    height: 1px;
+
+    background: var(--blue);
+
+    opacity: 0.5;
+
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: 15%;
+    }
+
+    50% {
+        top: 85%;
+    }
+
+    100% {
+        top: 15%;
+    }
+}
+
+.scanner-message {
+    position: absolute;
+
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+.landing-footer,
+.verification-footer {
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+
+    border-top: 1px solid var(--border);
+}
