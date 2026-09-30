@@ -198,6 +198,6 @@ npm run preview
 
 **Project:** `PROVE YOU ARE HUMAN`
 
-**Demo:** `YOUR_DEPLOYED_LINK`
+**Demo:** `[YOUR_DEPLOYED_LINK](https://prove-you-are-human.netlify.app/)`
 
 ---
